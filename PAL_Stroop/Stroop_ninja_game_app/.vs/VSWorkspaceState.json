@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\electron",
+    "\\src",
+    "\\src\\components",
+    "\\src\\components\\Games",
+    "\\src\\components\\Games\\fruit_ninja",
+    "\\src\\components\\Games\\stroop_test",
+    "\\src\\screens",
+    "\\src\\screens\\MainScreen",
+    "\\src\\utils"
+  ],
+  "SelectedNode": "\\electron\\main.js",
+  "PreviewInSolutionExplorer": false
+}

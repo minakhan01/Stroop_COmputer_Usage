@@ -1,0 +1,42 @@
+import { Button } from "antd";
+import axios from "axios";
+import { useEffect } from "react";
+import { store } from "../../redux";
+import { queueUserData } from "../../redux/actions/userdata.action";
+var s1 = {
+    height: "100vh",
+    width: "100vw",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center"
+};
+export default function PushInfo(props) {
+    useEffect(() => {
+        var ob = {
+            userid: store.getState().userdata.uname,
+            deviceid: store.getState().userdata.did,
+            uniqueid: store.getState().userdata.uid,
+            time: new Date().toISOString(),
+            fruit_ninja_scores: props.stage.scores.slice(0, 3),
+            stroop_test_scores: props.stage.scores.slice(3),
+            order: props.prp.order,
+        }
+        if (props.prp.order == 1) {
+            var tmp = ob.fruit_ninja_scores
+            ob.fruit_ninja_scores = ob.stroop_test_scores
+            ob.stroop_test_scores = tmp
+        }
+        console.log('pushing' + JSON.stringify(ob))
+        axios.post('https://thepallab.com/api/games/store', ob).then(response => { console.log('success1' + JSON.stringify(response)) }).catch((err) => {
+            console.log('err1' + JSON.stringify(err))
+            store.dispatch(queueUserData(ob))
+        })
+
+    })
+    return (
+        <div style={{ ...s1, flexDirection: 'column' }}>
+            <div>Scores are respectively {JSON.stringify(props.stage.scores)}</div>
+            <Button onClick={() => { props.prp.onComplete(props.stage.scores) }}>End</Button>
+        </div>
+    );
+} 

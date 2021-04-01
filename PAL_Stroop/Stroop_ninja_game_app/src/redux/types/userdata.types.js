@@ -1,0 +1,5 @@
+export const SET_USER_DATA = "SET_USER_DATA";
+
+export const QUEUE_USER_DATA = "QUEUE_USER_DATA";
+
+export const DEQUEUE_USER_DATA = "DEQUEUE_USER_DATA";
