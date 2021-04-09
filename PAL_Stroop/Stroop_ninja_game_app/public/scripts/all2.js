@@ -1775,7 +1775,7 @@ define("scripts/factory/fruit.js", function(exports) {
     function getType() {
 
     //original 8 changed to document.getElement
-    if (random(parseInt(document.getElementById('fruit_ninja_bombprob_inverse').innerHTML)) == 1) return "boom";
+    if (random(parseInt(document.getElementById('fruit_ninja_bombprob_inverse').innerHTML)) == 0) return "boom";
     else return types[random(5)];
   }
 

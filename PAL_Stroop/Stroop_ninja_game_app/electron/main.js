@@ -79,7 +79,7 @@ app.on("ready", () => {
         });
         if (mainWindow == null)
             customNotification.show()
-    }, 20000)    
+    }, 7200000)    
     
 });
 
