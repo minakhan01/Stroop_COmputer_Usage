@@ -66,7 +66,7 @@ function StroopTest(props) {
     }
     return (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }} key={count.total}>
-            <div>Question {count.total}</div>
+            <div>Question {count.total + 1}</div>
             <CountdownCircleTimer
                 onComplete={() => { setCount({ ...count, total: count.total + 1, lastResult: 'Out of time!'}) }}
                 isPlaying

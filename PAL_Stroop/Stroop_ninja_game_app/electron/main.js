@@ -10,8 +10,8 @@ const { machineId, machineIdSync } = require('node-machine-id')
 
 function createWindow() {
   mainWindow = new BrowserWindow({
-    width: 1000,
-    height: 600,
+    width: 680,
+    height: 550,
     show: false,
 
     webPreferences: {
@@ -51,17 +51,17 @@ function createWindow() {
 
 const options = {
     title: 'Time for fruit-stroop!',
-    subtitle: 'Subtitle of the Click here to start',
-    silent: false,
-    hasReply: true,
-    timeoutType: 'never',
-    sound: path.join(__dirname, '../assets/sound.mp3'),
-    urgency: 'critical',
-    closeButtonText: 'Close Button',
-    actions: [{
-        type: 'button',
-        text: 'Show Button'
-    }]
+    /*subtitle: 'Subtitle of the Click here to start',*/
+    /*silent: false,*/
+    /*hasReply: true,*/
+    /*timeoutType: 'never'*/
+    /**sound: path.join(__dirname, '../assets/sound.mp3'),
+    *urgency: 'critical',
+    *closeButtonText: 'Close Button',
+    *actions: [{
+    *    type: 'button',
+    *    text: 'Show Button'
+    }]*/
 }
 
 

@@ -526,19 +526,23 @@ define("scripts/main.js", function(exports) {
     setInterval(function () {
         if (document.getElementById("fruit_ninja_container_container") == null) {
 
-            message.removeEventListener("slice.at", f2);
-            message.removeEventListener("slice", f1);
-            var id = window.setTimeout(function () { }, 0);
-            //console.log('clearing timeouts')
-            while (id-- > idTimeout0) {
-                window.clearTimeout(id); // will do nothing if no timeout with id is present
-            }
+          message.removeEventListener("slice.at", f2);
+          message.removeEventListener("slice", f1);
+          var id = window.setInterval(function () { }, 0);
+          //console.log('clearing timeouts')
+          id=id-2
+          while (id-- > idInterval0) {
+            window.clearInterval(id); // will do nothing if no timeout with id is present
+          }
 
-            id = window.setInterval(function () { }, 0);
+          id = window.setTimeout(function () { }, 0);            
+          id=id-2
+          while (id-- > idTimeout0) {
+              console.log('Clearing timeout '+id)
+              window.clearTimeout(id); // will do nothing if no timeout with id is present
+          }
 
-            while (id-- > idInterval0) {
-                window.clearInterval(id); // will do nothing if no timeout with id is present
-            }
+
         }
     }, 300);
   ///////////////////////////////////////////

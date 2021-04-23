@@ -528,17 +528,20 @@ define("scripts/main.js", function(exports) {
 
             message.removeEventListener("slice.at", f2);
             message.removeEventListener("slice", f1);
-            var id = window.setTimeout(function () { }, 0);
+            var id = window.setInterval(function () { }, 0);
             //console.log('clearing timeouts')
+            //id=id-30
+            while (id-- > idInterval0) {
+              window.clearInterval(id); // will do nothing if no timeout with id is present
+            }
+
+            id = window.setTimeout(function () { }, 0);            
+            //id=id-30
             while (id-- > idTimeout0) {
+                console.log('Clearing timeout '+id)
                 window.clearTimeout(id); // will do nothing if no timeout with id is present
             }
 
-            id = window.setInterval(function () { }, 0);
-
-            while (id-- > idInterval0) {
-                window.clearInterval(id); // will do nothing if no timeout with id is present
-            }
         }
     }, 300);
   ///////////////////////////////////////////
@@ -6403,7 +6406,9 @@ define("scripts/lib/raphael.js", function(exports) {
       for (var a = 0; a < cv.length; a++)
         cv[a].el.id == this.id && cv.splice(a--, 1);
       for (a = 0, ii = this.timeouts && this.timeouts.length; a < ii; a++)
+      {        
         clearTimeout(this.timeouts[a]);
+      }
       this.timeouts = [];
       clearTimeout(this._ac);
       delete this._ac;
