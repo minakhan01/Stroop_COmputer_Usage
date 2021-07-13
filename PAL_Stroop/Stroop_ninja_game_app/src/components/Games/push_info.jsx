@@ -13,9 +13,7 @@ var s1 = {
 export default function PushInfo(props) {
     useEffect(() => {
         var ob = {
-            userid: store.getState().userdata.uname,
-            deviceid: store.getState().userdata.did,
-            uniqueid: store.getState().userdata.uid,
+            user: store.getState().userdata._id,
             time: new Date().toISOString(),
             fruit_ninja_scores: props.stage.scores.slice(0, 3),
             stroop_test_scores: props.stage.scores.slice(3),
